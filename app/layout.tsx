@@ -6,8 +6,12 @@ import Footer from '@/components/Footer'
 export const metadata = {
   title: 'My TechVision Blog',
   description: 'Explore AI, Web Dev, Cybersecurity, and UI/UX',
-  icons: {
-    icon: '/trendtech.png', // <-- use your image
+  icons: { icon: '/trendtech.png' },
+  keywords: 'AI, Web Development, Cybersecurity, UI/UX, Tech Blog',
+  openGraph: {
+    title: 'My TechVision Blog',
+    description: 'Explore AI, Web Dev, Cybersecurity, and UI/UX',
+    images: ['/og-image.jpg'], 
   },
 }
 

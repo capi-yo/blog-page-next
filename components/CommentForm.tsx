@@ -1,10 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function CommentForm() {
   const [form, setForm] = useState({ name: '', email: '', comment: '' })
   const [comments, setComments] = useState<string[]>([])
+
+  useEffect(() => {
+    const storedComments = localStorage.getItem('comments');
+    if (storedComments) setComments(JSON.parse(storedComments));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('comments', JSON.stringify(comments));
+  }, [comments]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.id]: e.target.value })
